@@ -1,4 +1,4 @@
-# state-of-reactjs
+# state-of-react
 
 - - - - - - - - - - - - - -
 A ReactJS reviewer on frameworks, tools, tests & related stuff
