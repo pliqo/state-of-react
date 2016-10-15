@@ -38,12 +38,13 @@ class ShowcaseDetail extends Component {
 
   render() {
     let reviews = this.state.data.reviews;
+    let externalUrl = this.state.data.url;
     return (   
         <div className="detail">
           <h1>{this.state.data.name}</h1>
             <p>
               {this.state.data.body}<br/>
-              <a href="{this.state.data.url}" target="_blank">{this.state.data.url}</a>
+              <a href={externalUrl} target="_blank">{externalUrl}</a>
             </p>
             <p>
               Reviews: {(reviews)?reviews.length:''} - Avg. rate: { (reviews)?this.getAvgRates(reviews):''}              
