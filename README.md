@@ -5,7 +5,7 @@ A React showcase on frameworks, tools, tests & related stuff
 - - - - - - - - - - - - - - 
 
 Boutique site with some views: home, list, detail and a submit page
-Uses react-router
+Uses react-router, Express.js server (for fetching the currently static json file)
 
 Home
 -----
