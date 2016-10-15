@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import avgRates from '../utils/avgRates.js';
 import fetcher from '../utils/fetcher.js';
+import formatDate from '../utils/formatDate.js';
 
 import './ShowcaseDetail.css';
 
@@ -31,17 +32,24 @@ class ShowcaseDetail extends Component {
     return avgRates(reviews);
   }
 
-  formatDate(date) {
-    const d = new Date(date);
-    return d.getDate() + '.' + (d.getMonth() + 1) + '.' + d.getFullYear();
+  getFormatDate(date) {
+    return formatDate(date);
   }
 
   render() {
     let reviews = this.state.data.reviews;
     let externalUrl = this.state.data.url;
+    if(reviews) {
+      reviews.sort(function(a, b){
+          let dateA = new Date(a.created_at)
+          let dateB = new Date(b.created_at);
+          return dateB-dateA //sort by date descending
+      })
+    }
     return (   
         <div className="detail">
           <h1>{this.state.data.name}</h1>
+          <small>{this.getFormatDate(this.state.data.created_at)}</small>
             <p>
               {this.state.data.body}<br/>
               <a href={externalUrl} target="_blank">{externalUrl}</a>
@@ -52,7 +60,7 @@ class ShowcaseDetail extends Component {
             <ul className="review_list">
               {(reviews)?reviews.map((item, index) =>
                 <li key={index} className="list_item">
-                <small>{this.formatDate(item.created_at)}</small>
+                <small>{this.getFormatDate(item.created_at)}</small>
                 <h3>
                   {item.reviewer_username}
                 </h3>                

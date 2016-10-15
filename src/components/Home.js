@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 
 import avgRates from '../utils/avgRates.js';
 import fetcher from '../utils/fetcher.js';
+import formatDate from '../utils/formatDate.js';
 
 import './Home.css';
 import './ShowcaseDetail.css';
@@ -32,6 +33,10 @@ class Home extends Component {
     return avgRates(reviews);
   }
 
+  getFormatDate(date) {
+    return formatDate(date);
+  }
+
   render() {
     let reviews = this.state.data.reviews;
     return (   
@@ -42,7 +47,8 @@ class Home extends Component {
         </p>
         <small>Here's one picked randomnly :)</small>
         <div className="detail">
-          <h2><Link to={"/"+this.state.data.id}>{this.state.data.name}</Link></h2>
+          <h2><Link to={'/'+this.state.data.id}>{this.state.data.name}</Link></h2>
+            <small>{this.getFormatDate(this.state.data.created_at)}</small>
             <p>
               {this.state.data.body}<br/>
               Reviews: {(reviews)?reviews.length:''} - Avg. rate: { (reviews)?this.getAvgRates(reviews):''}              

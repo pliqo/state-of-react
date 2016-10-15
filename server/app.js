@@ -19,7 +19,40 @@ fs.readFile(showcaseFilePath, 'utf8', function (err, data) {
 
 // Get all the showcase items
 app.get('/api/showcase', (req, res) => {
-    res.json(showcaseObj);
+    var showcase = showcaseObj;
+    if(req.query.sort == 'dateasc') {
+      showcase.sort(function(a, b) {
+        var dateA = new Date(a.created_at)
+        var dateB = new Date(b.created_at);
+        return dateA-dateB //sort by date descending
+      });
+    } else if(req.query.sort == 'nameasc') {
+       showcase.sort(function(a, b) {
+        var nameA = a.name.toLowerCase(), nameB = b.name.toLowerCase()
+        if (nameA < nameB) //sort string ascending
+            return -1 
+        if (nameA > nameB)
+            return 1
+        return 0 //default return value (no sorting)
+       });
+    } else if(req.query.sort == 'namedesc') {
+       showcase.sort(function(a, b) {
+        var nameA = a.name.toLowerCase(), nameB = b.name.toLowerCase()
+        if (nameA < nameB) 
+            return 1 
+        if (nameA > nameB) //sort string descending
+            return -1
+        return 0 //default return value (no sorting)
+       });
+    } else {
+      showcase.sort(function(a, b) {
+        var dateA = new Date(a.created_at)
+        var dateB = new Date(b.created_at);
+        return dateB-dateA //sort by date descending
+      });
+    }
+
+    res.json(showcase);
 });
 
 // TBD
