@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
 import { shallow, render, mount } from 'enzyme';
-import App from '../App';
+import Home from '../components/Home';
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+  const el = document.createElement('div');
+  ReactDOM.render(<Home />, el);
 });

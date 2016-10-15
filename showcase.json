@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "First repo",
+    "body": "A short description of what the Repo is about.",
+    "url": "https://github.com/username-or-project/repo-name",
+    "created_at": "2016-10-10T17:43:56Z",
+    "reviews": [
+      {
+        "rate": 5,
+        "review": "First comment: I think this is awesome!",
+        "reviewer_username": "ryanvannin",
+        "created_at": "2016-10-10T17:46:56Z"
+      }, 
+      {
+        "rate": 4,
+        "review": "Another comment!",
+        "reviewer_username": "nickbalestra",
+        "created_at": "2016-10-11T09:48:23Z"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Another repo",
+    "body": "Here's a description for this repo.",
+    "url": "https://github.com/username-or-project/second-repo-name",
+    "created_at": "2016-10-11T11:23:26Z",
+    "reviews": [
+      {
+      "rate": 4,
+      "review": "I'm not sure I got it?!?!",
+      "reviewer_username": "nickbalestra",
+      "created_at": "2016-10-11T12:06:12Z"
+      }
+    ]
+  }
+]
