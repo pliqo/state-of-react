@@ -1,0 +1,17 @@
+.detail {
+  display: block;
+  margin: .5em auto;
+  padding: 1em;
+  border: solid 1px #87dadf;
+  background-color: #fff;
+}
+
+.detail a {
+  display: block;
+  color: #0099a8;
+  text-decoration: none;
+}
+
+.detail a:hover {
+  color: #26cad3;
+}

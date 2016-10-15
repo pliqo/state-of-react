@@ -1,0 +1,28 @@
+.showcase {
+
+}
+
+.showcase ul {
+  list-style: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.showcase li {
+  display: block;
+  margin: .5em auto;
+  padding: 1em;
+  border: solid 1px #87dadf;
+  background-color: #fff;
+}
+
+.showcase li a {
+  display: block;
+  color: #0099a8;
+  text-decoration: none;
+}
+
+.showcase li a:hover {
+  color: #26cad3;
+}

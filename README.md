@@ -1,31 +1,35 @@
 # state-of-react
 
 - - - - - - - - - - - - - -
-A ReactJS reviewer on frameworks, tools, tests & related stuff
+A React showcase on frameworks, tools, tests & related stuff
 - - - - - - - - - - - - - - 
 
-Single page app with three views: home, list, detail
+Boutique site with some views: home, list, detail and a submit page
+Uses react-router
 
 Home
 -----
 A welcome screen with some text and a call to action to display the frameworks list.
-There's, of course, a random review as a teaser.
+There's, of course, a random item as a teaser.
 
 List
 -----
 A view that lists the summary of the detail of each framework.
 Each element has title, desc, link to the detail. Summary of rates.
 Enable sorting, search.
-Think using GitHub APIs.
-Possible to add frameworks if authenticated.
 
 Detail
 -----
 Each detail has title, desc, body, link to GitHub, individual reviews (with its rate, comment and author).
 
+Submit
+-----
+Must be possible to add frameworks if authenticated.
+Think using GitHub APIs.
+
 Shared components
 -----
-Header with nav + breadcrumbs.
+Header with nav and active state.
 
 - - - - - - - - - - - - - -
 
