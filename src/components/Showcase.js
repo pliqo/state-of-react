@@ -35,7 +35,7 @@ class Showcase extends Component {
     return ( 
         <div className="showcase">  
           <h3>Showcase</h3>
-          <ul className="list">
+          <ul className="showcase_list">
           {this.state.data.map((item, index) =>
             <li key={index} className="list_item">
             <h2><Link to={"/"+item.id}>{item.name}</Link></h2>

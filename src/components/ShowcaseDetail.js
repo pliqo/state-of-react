@@ -31,6 +31,11 @@ class ShowcaseDetail extends Component {
     return avgRates(reviews);
   }
 
+  formatDate(date) {
+    const d = new Date(date);
+    return d.getDate() + '.' + (d.getMonth() + 1) + '.' + d.getFullYear();
+  }
+
   render() {
     let reviews = this.state.data.reviews;
     return (   
@@ -38,8 +43,27 @@ class ShowcaseDetail extends Component {
           <h1>{this.state.data.name}</h1>
             <p>
               {this.state.data.body}<br/>
+              <a href="{this.state.data.url}" target="_blank">{this.state.data.url}</a>
+            </p>
+            <p>
               Reviews: {(reviews)?reviews.length:''} - Avg. rate: { (reviews)?this.getAvgRates(reviews):''}              
             </p>
+            <ul className="review_list">
+              {(reviews)?reviews.map((item, index) =>
+                <li key={index} className="list_item">
+                <small>{this.formatDate(item.created_at)}</small>
+                <h3>
+                  {item.reviewer_username}
+                </h3>                
+                <p>
+                  {item.review}
+                </p>
+                <p>
+                  Rate: {item.rate}
+                </p>
+                </li>
+              ):''}
+          </ul>
         </div>
     );
   }

@@ -43,5 +43,5 @@ Todos
 6. Authentication
 7. Server-side rendering
 8. Pagination
-9. Redux/Redux-saga/Mobix
+9. Redux/Redux-saga/MobX
 10. Styling + CSS
