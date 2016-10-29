@@ -41,9 +41,9 @@ class Home extends Component {
     let reviews = this.state.data.reviews;
     return (   
       <div className="home">
-        <h1>Welcome to State of React.</h1>
+        <h1>Welcome to ShowcaseJS!</h1>
         <p>
-          A showcase of frameworks, utils, tests & everything related to React!<br/>Rate and review your favorites.
+          A showcase of frameworks, tools, utils, tests & everything related to JS!<br/>Rate and review your favorites.
         </p>
         <small>Here's one picked randomnly :)</small>
         <div className="detail">

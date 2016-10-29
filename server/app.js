@@ -1,13 +1,25 @@
 // server/app.js
 const express = require('express');
-//const morgan = require('morgan');
+const morgan = require('morgan');
 const path = require('path');
 const fs = require('fs');
+const graphqlHTTP = require('express-graphql');
+const mongoose = require('mongoose');
+const schema = require('graphql');
 
 const app = express();
 
 // Setup logger with Morgan
-//app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] :response-time ms'));
+app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] :response-time ms'));
+
+// GraphqQL server route
+app.use('/graphql', graphqlHTTP(req => ({
+  schema,
+  pretty: true
+})));
+
+// Connect mongo database
+mongoose.connect('mongodb://localhost/graphql');
 
 // Here we're going to get the json showcase file
 var showcaseFilePath = path.resolve(__dirname, '..', 'showcase.json');
@@ -24,7 +36,7 @@ app.get('/api/showcase', (req, res) => {
       showcase.sort(function(a, b) {
         var dateA = new Date(a.created_at)
         var dateB = new Date(b.created_at);
-        return dateA-dateB //sort by date descending
+        return dateA-dateB //sort by date ascending
       });
     } else if(req.query.sort == 'nameasc') {
        showcase.sort(function(a, b) {
@@ -85,11 +97,15 @@ app.get('/api/:id', (req, res) => {
 });
 
 // Serve static assets
-app.use(express.static(path.resolve(__dirname, '..', 'build')));
+app.use(express.static(path.resolve(__dirname, '../client', 'build')));
 
 // Always return the main index.html, so react-router renders the route in the client
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
+  res.sendFile(path.resolve(__dirname, '../client', 'build', 'index.html'));
 });
+
+app.post('/submit', (req, res) => {
+  console.log('Yeaaaaaaaahhhhhhh');
+})
 
 module.exports = app;

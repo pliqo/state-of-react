@@ -1,0 +1,24 @@
+{
+  "name": "state-of-reactjs-server",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-enzyme": "^0.5.2",
+    "cheerio": "^0.22.0",
+    "enzyme": "^2.4.1",
+    "serve": "^1.4.0",
+    "sinon": "^1.17.6"
+  },
+  "dependencies": {
+    "express": "^4.14.0",
+    "express-graphql": "^0.5.4",
+    "foreman": "^1.4.1",
+    "fs": "^0.0.2",
+    "graphql": "^0.7.2",
+    "morgan": "^1.7.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}

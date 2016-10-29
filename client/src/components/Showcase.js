@@ -13,7 +13,6 @@ class Showcase extends Component {
     this.state = {
       data: []
     }
-    this.sortData = this.sortData.bind(this);
   }
 
   fetchData() {
@@ -27,17 +26,13 @@ class Showcase extends Component {
     });  
   }
 
-  sortData(url) {
-    console.log(url);
-    fetcher(url, (data) => {
-      this.setState({ 
-        data: data
-      }); 
-    });
-  }
-
   componentDidMount() {
     this.fetchData();
+    this.interval = setInterval(() => this.fetchData(), 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
   }
 
   render() {
@@ -46,7 +41,7 @@ class Showcase extends Component {
           <h3>Showcase</h3>
           Sort: by Date (<Link to={{ pathname: '/showcase', query: { sort: 'dateasc' }}}>asc</Link>, <Link to={'/showcase'}>desc</Link>) 
           or by Name (<Link to={{ pathname: '/showcase', query: { sort: 'nameasc' }}}>asc</Link>, <Link to={{ pathname: '/showcase', query: { sort: 'namedesc' }}}>desc</Link>)
-          <ShowcaseList data={this.state.data} sort={this.props.location.query.sort} fetchUrl={this.props.fetchUrl} sortData={ this.sortData }/>
+          <ShowcaseList data={this.state.data}/>
           
         </div>
     );
@@ -54,9 +49,6 @@ class Showcase extends Component {
 }
 
 const ShowcaseList = (props) => {  
-  let query = (props.sort)?'?sort='+props.sort:'';
-  props.sortData(props.fetchUrl+query);
-  //console.log(query);
   return (
     <ul className="showcase_list">
       {props.data.map((item, index) =>

@@ -1,0 +1,49 @@
+.submit label {
+  display: block;
+}
+
+.submit input, .submit textarea {
+  display: inline-block;
+  box-sizing: border-box;  
+  border: solid 1px #87dadf;
+  background-color: #fff;
+  width: 100%;
+  max-width: 640px;
+  min-height: 2em;
+  font-size: 1em;
+  line-height: 2em;
+}
+
+.submit input:required, .submit textarea:required {
+    background:hsl(180, 50%, 90%);
+    border:1px solid #999;
+}
+.submit input:valid,
+.submit input:in-range,
+.submit textarea:valid,
+.submit textarea:in-range {
+    background:hsl(120, 50%, 90%);
+    border-color:hsl(120, 50%, 50%);
+}
+
+.submit input:invalid,
+.submit input:out-of-range,
+.submit textarea:invalid,
+.submit textarea:out-of-range {
+    border-color:hsl(0, 50%, 50%);
+    background:hsl(0, 50%, 90%);
+}
+
+.submit button {
+  display: inline-block;
+  box-sizing: border-box;
+  border: 0;
+  width: 100%;
+  max-width: 640px;
+  height: 2em;
+  color: #fff;
+  background-color: #0099a8;
+  text-align: center;
+  font-size: 1.25em;
+  line-height: 2em;
+}
